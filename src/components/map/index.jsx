@@ -10,7 +10,7 @@ const Map = () => {
   console.log("state...", location);
   return (
     <MapContainer
-      center={locations}
+      center={[35.6892, 51.389]}
       zoom={14}
       scrollWheelZoom={true}
       style={{ height: "100vh", width: "100%" }}
@@ -19,7 +19,7 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <DraggableMarker position={locations} />
+      <DraggableMarker position={location} />
     </MapContainer>
   );
 };
