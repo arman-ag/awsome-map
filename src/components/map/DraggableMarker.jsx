@@ -1,6 +1,6 @@
 import { Marker, Popup } from "react-leaflet";
 const DraggableMarker = ({ position, zoom }) => {
-  if (zoom > 11) {
+  if (zoom > 10) {
     return (
       <>
         {position.map((item, index) => (

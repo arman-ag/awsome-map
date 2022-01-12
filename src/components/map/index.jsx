@@ -6,10 +6,10 @@ import { MapContainer, TileLayer, useMapEvents } from "react-leaflet";
 import { useSelector } from "react-redux";
 import DraggableMarker from "./DraggableMarker";
 
-const Map = ({}) => {
-  const [zoom, setZoom] = useState();
+const Map = () => {
   const location = useSelector((state) => state.location.locations);
-  const [centerPosition, setCenterPosition] = useState(0);
+  const [zoom, setZoom] = useState();
+  const [centerPosition, setCenterPosition] = useState([35.6892, 51.389]);
   useEffect(() => {
     console.log("state...", location);
     let lat = 0;
@@ -19,7 +19,6 @@ const Map = ({}) => {
       lat += item.lat;
     }
     setCenterPosition([lat / location.length, lng / location.length]);
-    console.log("csc", [lat / location.length, lng / location.length]);
   }, [location]);
   console.log({ centerPosition });
 
@@ -31,12 +30,11 @@ const Map = ({}) => {
     });
     return null;
   };
-  console.log("zoom", zoom);
 
   return (
     <MapContainer
-      center={[35.786556399999995, 51.4509014]}
-      zoom={12}
+      center={centerPosition}
+      zoom={11}
       scrollWheelZoom={true}
       style={{ height: "80vh", width: "100%" }}
     >
