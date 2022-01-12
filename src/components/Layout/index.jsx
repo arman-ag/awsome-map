@@ -5,7 +5,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <div style={{ height: "100vh" }}>{children}</div>
       <Footer />
     </>
   );

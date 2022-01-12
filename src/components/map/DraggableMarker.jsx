@@ -1,10 +1,9 @@
 import { Marker, Popup } from "react-leaflet";
-const DraggableMarker = ({ position }) => {
-  return (
-    <>
-      {position.map((item, index) => {
-        console.log("item", item);
-        return (
+const DraggableMarker = ({ position, zoom }) => {
+  if (zoom > 11) {
+    return (
+      <>
+        {position.map((item, index) => (
           <Marker
             key={index}
             draggable={false}
@@ -12,9 +11,11 @@ const DraggableMarker = ({ position }) => {
           >
             <Popup minWidth={90}>{item.lable}</Popup>
           </Marker>
-        );
-      })}
-    </>
-  );
+        ))}
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 export default DraggableMarker;
